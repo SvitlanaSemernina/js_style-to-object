@@ -9,12 +9,12 @@ function convertToObject(sourceString) {
   const cssObjectList = {};
   const cssArrayList = sourceString.split(';');
 
-  cssArrayList.map((characteristic) => {
+  cssArrayList.forEach((characteristic) => {
     const [property, value] = characteristic
       .split(':')
       .map((item) => item.trim());
 
-    if (value !== '' || value !== undefined) {
+    if (value !== '' && value !== undefined) {
       cssObjectList[property] = value;
     }
   });
